@@ -10,6 +10,8 @@ To install Docker-compose see their [releases page](https://github.com/docker/co
 
 The Dockerfile build expects that you have already downloaded 'jasperreports-server-cp-6.1.0-bin.zip' into root directory of this repo.
 
+To stop the containers run `docker-compose stop` and `docker-compose start` to restart them.
+
 
 ## Login to JasperReports Web
 

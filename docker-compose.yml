@@ -3,13 +3,13 @@ jasperserver:
   ports:
   - "8080:8080"
   environment:
-  - DB_TYPE=postgresql
+  - DB_TYPE=mysql
   - DB_HOST=db
-  - DB_USER=postgres
-  - DB_PASSWORD=postgres
+  - DB_USER=root
+  - DB_PASSWORD=mysql
   links:
-  - postgres:db
-postgres:
-  image: postgres
+  - mysql:db
+mysql:
+  image: mysql
   environment:
-  - POSTGRES_PASSWORD=postgres
+  - MYSQL_ROOT_PASSWORD=mysql
