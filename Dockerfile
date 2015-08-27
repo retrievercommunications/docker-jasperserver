@@ -1,6 +1,9 @@
 FROM tomcat:7
 MAINTAINER Nic Grange nicolas.grange@retrievercommunications.com 
-# Thanks to John Paul Alcala jp@jpalcala.com
+# Credits need to go to John Paul Alcala jp@jpalcala.com for helping us get started
+
+# TODO to reduce the size of this image, we should download and install java, tomcat & jasperserver 
+# and then strip out we don't need in a single RUN command
 
 ENV JASPERSERVER_VERSION 6.1.0
 

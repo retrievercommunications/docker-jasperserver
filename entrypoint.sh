@@ -20,6 +20,7 @@ setup_jasperserver() {
 
 run_jasperserver() {
     if [ ! -d "$CATALINA_HOME/webapps/jasperserver" ]; then
+        seed_database
         setup_jasperserver deploy-webapp-ce
     fi
 
