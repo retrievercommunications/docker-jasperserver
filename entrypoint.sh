@@ -3,7 +3,7 @@ set -e
 
 setup_jasperserver() {
     DB_TYPE=${DB_TYPE:-postgresql}
-    DB_HOST=${DB_HOST:-postgres}
+    DB_HOST=${DB_HOST:-localhost}
     DB_USER=${DB_USER:-postgres}
     DB_PASSWORD=${DB_PASSWORD:-postgres}
 
