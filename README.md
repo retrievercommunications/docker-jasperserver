@@ -1,14 +1,28 @@
-## Run JasperServer in a Docker container
-===
+# Run JasperServer in a Docker container
 
-To start up:
+## Prerequisites
 
-* Run `docker-compose up` to run in foreground or
-* Run `docker-compose up -d` to run as in daemon mode.
+### JasperServer release
+
+The Dockerfile build expects that you have already downloaded 'jasperreports-server-cp-6.1.0-bin.zip' into root directory of this repo.
+
+You can download from either:
+
+* Dino at \\dino\Retriever\Engineering\Tools\jasper\jasperreports-server-cp-6.1.0-bin.zip or 
+* SourceForge at
+[jasperreports-server-cp-6.1.0-bin.zip](http://downloads.sourceforge.net/project/jasperserver/JasperServer/JasperReports%20Server%20Community%20Edition%206.1.0/jasperreports-server-cp-6.1.0-bin.zip)
+
+### Docker-compose
 
 To install Docker-compose see their [releases page](https://github.com/docker/compose/releases).
 
-The Dockerfile build expects that you have already downloaded 'jasperreports-server-cp-6.1.0-bin.zip' into root directory of this repo.
+
+## Starting the Containers
+
+To start up the JasperServer and MySQL containers:
+
+* Run `docker-compose up` to run in foreground or
+* Run `docker-compose up -d` to run as in daemon mode.
 
 To stop the containers run `docker-compose stop` and `docker-compose start` to restart them.
 
@@ -17,4 +31,11 @@ To stop the containers run `docker-compose stop` and `docker-compose start` to r
 
 1. Go to URL http://${dockerHost}:8080/jasperserver/
 2. Login using credentials: jasperadmin/jasperadmin
+
+
+## TODOs
+* Change Dockerfile to make a much smaller Image, currently 1.43GB, it should have about half that, if we were to download the jasper release, unzip it, get what we need, delete it on the same RUN command. We may also remove other unneccessary things like all the default webapps that come with Tomcat.
+* Clean up entrypoint.sh and add more comments
+* Add Data Only container to persist MySQL data
+
 
