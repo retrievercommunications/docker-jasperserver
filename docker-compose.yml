@@ -2,8 +2,13 @@ jasperserver:
   build: .
   ports:
   - "8080:8080"
+  environment:
+  - DB_TYPE=postgresql
+  - DB_HOST=db
+  - DB_USER=postgres
+  - DB_PASSWORD=postgres
   links:
-  - postgres
+  - postgres:db
 postgres:
   image: postgres
   environment:
