@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build the JasperServer image
-#docker build -t jasperserver_jasperserver .
+docker build -t jasperserver_jasperserver .
 
 # start the JasperServer and MySQL containers
 docker run -d --name jasperserver_mysql_1 -e MYSQL_ROOT_PASSWORD=mysql mysql
