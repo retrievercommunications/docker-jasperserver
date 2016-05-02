@@ -1,15 +1,21 @@
-jasperserver:
-  build: .
-  ports:
-  - "8080:8080"
-  environment:
-  - DB_TYPE=mysql
-  - DB_HOST=db
-  - DB_USER=root
-  - DB_PASSWORD=mysql
-  links:
-  - mysql:db
-mysql:
-  image: mysql
-  environment:
-  - MYSQL_ROOT_PASSWORD=mysql
+version: '2'
+
+services:
+
+  mysql:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql
+
+  jasperserver:
+    image: grange74/jasperserver
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_TYPE=mysql
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=mysql
+    depends_on:
+      - mysql
