@@ -1,16 +1,13 @@
 # Run JasperServer in a Docker container
 
+The Docker Image aims to quickly get up-and-running a JasperReports Server for a development environment.
+
 ## Prerequisites
 
 ### JasperServer release
 
-The Dockerfile build expects that you have already downloaded 'jasperreports-server-cp-6.1.0-bin.zip' into root directory of this repo.
-
-You can download from either:
-
-* Dino at \\dino\Retriever\Engineering\Tools\jasper\jasperreports-server-cp-6.1.0-bin.zip or 
-* SourceForge at
-[jasperreports-server-cp-6.1.0-bin.zip](http://downloads.sourceforge.net/project/jasperserver/JasperServer/JasperReports%20Server%20Community%20Edition%206.1.0/jasperreports-server-cp-6.1.0-bin.zip)
+This Dockerfile downloads the Community Edition release from SourceForge at
+[e.g. jasperreports-server-cp-6.1.0-bin.zip](http://downloads.sourceforge.net/project/jasperserver/JasperServer/JasperReports%20Server%20Community%20Edition%206.1.0/jasperreports-server-cp-6.1.0-bin.zip)
 
 ### Docker-compose
 
@@ -46,7 +43,6 @@ To stop the containers run `docker-compose stop` and `docker-compose start` to r
 
 
 ## TODOs
-* Change Dockerfile to make a much smaller Image, currently 1.43GB, it should have about half that, if we were to download the jasper release, unzip it, get what we need, delete it on the same RUN command. We may also remove other unneccessary things like all the default webapps that come with Tomcat.
 * Clean up entrypoint.sh and add more comments
 * Add Data Only container to persist MySQL data
 
