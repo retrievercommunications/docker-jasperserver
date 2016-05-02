@@ -1,11 +1,7 @@
 FROM tomcat:7
 MAINTAINER Nic Grange nicolas.grange@retrievercommunications.com 
-# Credits need to go to John Paul Alcala jp@jpalcala.com for helping us get started
 
 ENV JASPERSERVER_VERSION 6.1.0
-
-# Copy the relevant files over to the Container
-ADD entrypoint.sh /entrypoint.sh
 
 # Execute all in one layer so that it keeps the image as small as possible
 RUN wget "http://downloads.sourceforge.net/project/jasperserver/JasperServer/JasperReports%20Server%20Community%20Edition%20$JASPERSERVER_VERSION/jasperreports-server-cp-$JASPERSERVER_VERSION-bin.zip" \
@@ -15,9 +11,17 @@ RUN wget "http://downloads.sourceforge.net/project/jasperserver/JasperServer/Jas
     mv /usr/src/jasperreports-server-cp-$JASPERSERVER_VERSION-bin /usr/src/jasperreports-server && \
     rm -r /usr/src/jasperreports-server/samples
 
-ENV CATALINA_OPTS="-Xmx512m -XX:MaxPermSize=256m -XX:+UseBiasedLocking -XX:BiasedLockingStartupDelay=0 -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+DisableExplicitGC -XX:+CMSIncrementalMode -XX:+CMSIncrementalPacing -XX:+CMSParallelRemarkEnabled -XX:+UseCompressedOops -XX:+UseCMSInitiatingOccupancyOnly"
 
+# Used to wait for the database to start before connecting to it
+# This script is from https://github.com/vishnubob/wait-for-it
+ADD wait-for-it.sh /wait-for-it.sh
+RUN chmod a+x /wait-for-it.sh
+
+# Used to bootstrap JasperServer the first time it runs and start Tomcat each
+ADD entrypoint.sh /entrypoint.sh
 RUN chmod a+x /entrypoint.sh
 
+ENV CATALINA_OPTS="-Xmx512m -XX:MaxPermSize=256m -XX:+UseBiasedLocking -XX:BiasedLockingStartupDelay=0 -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+DisableExplicitGC -XX:+CMSIncrementalMode -XX:+CMSIncrementalPacing -XX:+CMSParallelRemarkEnabled -XX:+UseCompressedOops -XX:+UseCMSInitiatingOccupancyOnly"
+
+# Wait for DB to start-up, start up JasperServer and bootstrap if required
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["run"]
