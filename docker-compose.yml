@@ -8,7 +8,7 @@ services:
       - MYSQL_ROOT_PASSWORD=mysql
 
   jasperserver:
-    image: grange74/jasperserver
+    image: retriever/jasperserver
     ports:
       - "8080:8080"
     environment:
