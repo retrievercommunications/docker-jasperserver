@@ -11,8 +11,6 @@ This Dockerfile downloads the Community Edition release from SourceForge at
 
 ### Docker-compose
 
-Currently there is no official release of Docker-Compose for Windows so this is only for Mac and Linux users.
-
 To install Docker-compose see their [releases page](https://github.com/docker/compose/releases). 
 
 
