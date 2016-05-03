@@ -22,6 +22,13 @@ RUN chmod a+x /wait-for-it.sh
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod a+x /entrypoint.sh
 
+# This volume allows JasperServer export zip files to be automatically imported when bootstrapping
+VOLUME ["/import"]
+
+# By default, JasperReports Server only comes with Postgres & MariaDB/MySQL drivers
+# Copy over other JBDC drivers the deploy-jdbc-jar ant task will put it in right location
+ADD db2jcc4.jar /usr/src/jasperreports-server/buildomatic/conf_source/db/app-srv-jdbc-drivers/db2jcc4.jar
+
 # Use the minimum recommended memory to start-up
 ENV CATALINA_OPTS="-Xmx512m -XX:MaxPermSize=256m -XX:+UseBiasedLocking -XX:BiasedLockingStartupDelay=0 -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+DisableExplicitGC -XX:+CMSIncrementalMode -XX:+CMSIncrementalPacing -XX:+CMSParallelRemarkEnabled -XX:+UseCompressedOops -XX:+UseCMSInitiatingOccupancyOnly"
 

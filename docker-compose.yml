@@ -19,5 +19,8 @@ services:
       - DB_PORT=3306
       - DB_USER=root
       - DB_PASSWORD=mysql
+    volumes:
+      # Relative path on the host/volume on container
+      - ./import:/import
     depends_on:
       - mysql
