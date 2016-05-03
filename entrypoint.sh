@@ -23,7 +23,7 @@ if [ ! -d "$CATALINA_HOME/webapps/jasperserver" ]; then
 
     shopt -s nullglob # handle case if no zip files found
 
-    IMPORT_FILES=/import/*.zip
+    IMPORT_FILES=/jasperserver-import/*.zip
     for f in $IMPORT_FILES
     do
       echo "Importing $f..."

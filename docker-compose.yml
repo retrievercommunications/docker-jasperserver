@@ -21,6 +21,6 @@ services:
       - DB_PASSWORD=mysql
     volumes:
       # Relative path on the host/volume on container
-      - ./import:/import
+      - ./jasperserver-import:/jasperserver-import
     depends_on:
       - mysql
