@@ -1,7 +1,7 @@
 FROM tomcat:7
 MAINTAINER Nic Grange nicolas.grange@retrievercommunications.com 
 
-ENV JASPERSERVER_VERSION 6.1.0
+ENV JASPERSERVER_VERSION 6.3.0
 
 # Execute all in one layer so that it keeps the image as small as possible
 RUN wget "http://downloads.sourceforge.net/project/jasperserver/JasperServer/JasperReports%20Server%20Community%20Edition%20$JASPERSERVER_VERSION/jasperreports-server-cp-$JASPERSERVER_VERSION-bin.zip" \
