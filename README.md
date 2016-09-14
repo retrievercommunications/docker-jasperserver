@@ -2,6 +2,8 @@
 
 The Docker Image aims to quickly get up-and-running a JasperReports Server for a development environment.
 
+[![](https://images.microbadger.com/badges/image/retriever/jasperserver.svg)](https://microbadger.com/images/retriever/jasperserver "Get your own image badge on microbadger.com")
+
 ## Start the Container
 
 ### Using Command Line
