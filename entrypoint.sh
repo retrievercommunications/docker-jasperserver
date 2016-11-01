@@ -13,7 +13,7 @@ if [ ! -d "$CATALINA_HOME/webapps/jasperserver" ]; then
     sed -i -e "s|^appServerDir.*$|appServerDir = $CATALINA_HOME|g; s|^dbHost.*$|dbHost=$DB_HOST|g; s|^dbPort.*$|dbPort=$DB_PORT|g; s|^dbUsername.*$|dbUsername=$DB_USER|g; s|^dbPassword.*$|dbPassword=$DB_PASSWORD|g" default_master.properties
 
     # run the minimum bootstrap script to initial the JasperServer
-    ./js-ant create-js-db 
+    ./js-ant create-js-db || true #create database and skip it if database already exists
     ./js-ant init-js-db-ce 
     ./js-ant import-minimal-ce 
     ./js-ant deploy-webapp-ce
