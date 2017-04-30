@@ -40,3 +40,15 @@ This image includes:
 * IBM DB2 JDBC driver version 4.19.26
 * A volume called '/import' that allows automatic importing of export zip files from another JasperReports Server
 * Waits for the database to start before connecting to it using [wait-for-it](https://github.com/vishnubob/wait-for-it) as recommended by [docker-compose documentation](https://docs.docker.com/compose/startup-order/).
+
+## How to build this image
+Use `docker build -t retriever/jasperserver .` 
+
+See comments in Dockerfile to speed up testing by not having to download the jasperserver release each time.
+
+## How to release a new version
+This repo is setup to trigger an automated build of the image [retriever/jaserpserver](https://hub.docker.com/r/retriever/jasperserver/) on Docker Hub based on any push to the master branch of this repo.
+
+Ensure the docker tag name is updated here for each new image:
+https://hub.docker.com/r/retriever/jasperserver/~/settings/automated-builds/
+The naming convention is major.minor.iteration where the major and minor should line up with the included version of jasperserver and the iteration is just incremented each time a change is done other than an upgrade of the jasperserver version.
