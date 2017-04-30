@@ -46,6 +46,9 @@ Use `docker build -t retriever/jasperserver .`
 
 See comments in Dockerfile to speed up testing by not having to download the jasperserver release each time.
 
-## How to release a new version
-This repo is setup to trigger an automated build of the image [retriever/jaserpserver](https://hub.docker.com/r/retriever/jasperserver/) on Docker Hub based on any Tag pushed to the master branch of this repo. 
-To make a new official version of the image, just push a new git Tag using the naming convention is major.minor.iteration where the major and minor should line up with the included version of jasperserver and the iteration is just incremented each time a change is done other than an upgrade of the jasperserver version.
+## How to release a new image version
+This repo is setup to trigger an automated build of the image [retriever/jaserpserver](https://hub.docker.com/r/retriever/jasperserver/) on Docker Hub.
+
+To make a new official version of the image, just push a git Tag using the naming convention `major.minor.iteration` where:
+* major and minor line up with the included version of jasperserver 
+* iteration is incremented each time a change is done that isn't an upgrade of the included jasperserver version
