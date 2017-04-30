@@ -30,7 +30,7 @@ Note: To install Docker-compose see the [releases page](https://github.com/docke
 
 ## Login to JasperReports Web
 
-1. Go to URL http://${dockerHost}:8080/jasperserver/
+1. Go to URL http://${dockerHost}:8080/
 2. Login using credentials: jasperadmin/jasperadmin
 
 
