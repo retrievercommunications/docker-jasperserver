@@ -1,16 +1,28 @@
-version: '2'
+version: '3'
 
 services:
 
   mysql:
     image: mysql
+    container_name: mysql
     ports:
       - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=mysql
+    volumes:
+      - ./datadir:/var/lib/mysql
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        max_attempts: 3
+        window: 120s
 
   jasperserver:
     image: retriever/jasperserver
+    container_name: jasperserver
     ports:
       - "8080:8080"
     environment:
@@ -24,3 +36,11 @@ services:
       - ./jasperserver-import:/jasperserver-import
     depends_on:
       - mysql
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        max_attempts: 3
+        window: 120s
