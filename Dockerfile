@@ -14,7 +14,7 @@ RUN wget "https://sourceforge.net/projects/jasperserver/files/JasperServer/Jaspe
 # To speed up local testing
 # Download manually the jasperreport server release to working dir
 # Uncomment ADD & RUN commands below and comment out above RUN command
-# ADD jasperreports-server-cp-6.3.0-bin.zip /tmp/jasperserver.zip
+# ADD TIB_js-jrs-cp_6.4.0_bin.zip /tmp/jasperserver.zip
 # RUN unzip /tmp/jasperserver.zip -d /usr/src/ && \
 #    rm /tmp/jasperserver.zip && \
 #    mv /usr/src/jasperreports-server-cp-$JASPERSERVER_VERSION-bin /usr/src/jasperreports-server && \
