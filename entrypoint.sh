@@ -27,7 +27,13 @@ if [ ! -d "$CATALINA_HOME/webapps/jasperserver" ]; then
     ./js-ant import-minimal-ce 
     ./js-ant deploy-webapp-ce
     
-    
+    # Add WebServiceDataSource plugin
+    wget https://d2553lapexsdrl.cloudfront.net/sites/default/files/releases/jaspersoft_webserviceds_v1.5.zip -O /tmp/jasper.zip && \
+    unzip /tmp/jasper.zip -d /tmp/ && \
+    cp -rfv /tmp/JRS/WEB-INF/* /usr/local/tomcat/webapps/ROOT/WEB-INF/ && \
+    sed -i 's/queryLanguagesPro/queryLanguagesCe/g' /usr/local/tomcat/webapps/ROOT/WEB-INF/applicationContext-WebServiceDataSource.xml && \
+    rm -rf /tmp/*
+
     # import any export zip files from another JasperServer
 
     shopt -s nullglob # handle case if no zip files found
@@ -36,9 +42,8 @@ if [ ! -d "$CATALINA_HOME/webapps/jasperserver" ]; then
     for f in $IMPORT_FILES
     do
       echo "Importing $f..."
-      ./js-import.sh --input-zip $f 
+      ./js-import.sh --input-zip $f
     done
-
 
     popd
 fi
