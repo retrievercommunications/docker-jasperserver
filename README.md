@@ -13,7 +13,7 @@ To start the JasperServer container you'll need to pass in 5 environment variabl
 E.g. `docker run -d --name jasperserver -e DB_TYPE=mysql -e DB_HOST=db -e DB_PORT=3306 -e DB_USER=root -e DB_PASSWORD=mysql --link jasperserver_mysql:db -p 8080:8080 retriever/jasperserver`
 
 If you haven't got an existing MySQL or Postgres container then you can easily create one:
-`docker run -d --name jasperserver_mysql -e MYSQL_ROOT_PASSWORD=mysql mysql`
+`docker run -d --name jasperserver_mysql -e MYSQL_ROOT_PASSWORD=mysql mysql:5.7`
 
 
 ### Using Docker-compose
