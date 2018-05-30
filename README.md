@@ -48,6 +48,9 @@ Use `docker build -t retriever/jasperserver .`
 
 See comments in Dockerfile to speed up testing by not having to download the jasperserver release each time.
 
+## Troubleshooting
+If you are having problems starting the containers because of a MySQL error like "[ERROR] [FATAL] Innodb: Table flags are 0...", then you will need to delete the data_dir which contains the MySQL database and then recreate the containers. Please note that you will lose any data previously stored in the database.
+
 ## How to release a new image version
 This repo is setup to trigger an automated build of the image [retriever/jaserpserver](https://hub.docker.com/r/retriever/jasperserver/) on Docker Hub.
 

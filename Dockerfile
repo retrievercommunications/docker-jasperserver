@@ -27,6 +27,7 @@ ADD wait-for-it.sh /wait-for-it.sh
 
 # Used to bootstrap JasperServer the first time it runs and start Tomcat each
 ADD entrypoint.sh /entrypoint.sh
+ADD .do_deploy_jasperserver /.do_deploy_jasperserver
 
 #Execute all in one layer so that it keeps the image as small as possible
 RUN chmod a+x /entrypoint.sh && \
