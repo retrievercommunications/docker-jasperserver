@@ -1,0 +1,4 @@
+# If this file is present, then the JasperServer container will bootstrapp itself on startup.
+# This file will get deleted once the bootstrap process is finished.
+# If you want to re-bootstrap for any reason then recreate a file with the same name
+# at the root of the jasperserver container and then restart the container.

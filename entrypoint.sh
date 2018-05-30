@@ -5,7 +5,7 @@ set -e
 /wait-for-it.sh $DB_HOST:$DB_PORT -t 30
 
 # check if we need to bootstrap the JasperServer
-if [ ! -d "$CATALINA_HOME/webapps/jasperserver" ]; then
+if [ -f "/.do_deploy_jasperserver" ]; then
     pushd /usr/src/jasperreports-server/buildomatic
     
     # Use provided configuration templates
@@ -26,6 +26,9 @@ if [ ! -d "$CATALINA_HOME/webapps/jasperserver" ]; then
     ./js-ant init-js-db-ce 
     ./js-ant import-minimal-ce 
     ./js-ant deploy-webapp-ce
+
+    # bootstrap was successful, delete file so we don't bootstrap on subsequent restarts
+    rm /.do_deploy_jasperserver
     
     # Add WebServiceDataSource plugin
     wget https://d2553lapexsdrl.cloudfront.net/sites/default/files/releases/jaspersoft_webserviceds_v1.5.zip -O /tmp/jasper.zip && \

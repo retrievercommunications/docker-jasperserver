@@ -48,6 +48,9 @@ Use `docker build -t retriever/jasperserver .`
 
 See comments in Dockerfile to speed up testing by not having to download the jasperserver release each time.
 
+## Troubleshooting
+If you having problems recreating the container, then delete the data_dir.
+
 ## How to release a new image version
 This repo is setup to trigger an automated build of the image [retriever/jaserpserver](https://hub.docker.com/r/retriever/jasperserver/) on Docker Hub.
 
