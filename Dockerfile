@@ -4,7 +4,7 @@ MAINTAINER Nic Grange nicolas.grange@retrievercommunications.com
 ENV JASPERSERVER_VERSION 6.1.0
 
 # Execute all in one layer so that it keeps the image as small as possible
-RUN wget "https://sourceforge.net/projects/jasperserver/files/JasperServer/JasperReports%20Server%20Community%20Edition%20${JASPERSERVER_VERSION}/jasperreports-server-cp-${JASPERSERVER_VERSION}_bin.zip/download" \
+RUN wget "https://sourceforge.net/projects/jasperserver/files/JasperServer/JasperReports%20Server%20Community%20Edition%20${JASPERSERVER_VERSION}/jasperreports-server-cp-${JASPERSERVER_VERSION}-bin.zip/download" \
          -O /tmp/jasperserver.zip  && \
     unzip /tmp/jasperserver.zip -d /usr/src/ && \
     rm /tmp/jasperserver.zip && \
