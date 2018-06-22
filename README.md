@@ -36,7 +36,7 @@ Note: To install Docker-compose see the [releases page](https://github.com/docke
 
 ## Image Features
 This image includes:
-* JasperServer CE Edition version 6.4.0
+* JasperServer CE Edition version 6.1.0
 * IBM DB2 JDBC driver version 4.19.26
 * MySQL JDBC driver version 5.1.44
 * A volume called '/import' that allows automatic importing of export zip files from another JasperReports Server
