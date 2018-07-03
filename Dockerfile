@@ -38,7 +38,7 @@ VOLUME ["/jasperserver-import"]
 
 # By default, JasperReports Server only comes with Postgres & MariaDB drivers
 # Copy over other JBDC drivers the deploy-jdbc-jar ant task will put it in right location
-ADD drivers/db2jcc4.jar /usr/src/jasperreports-server/buildomatic/conf_source/db/app-srv-jdbc-drivers/db2jcc4.jar
+ADD drivers/db2jcc4-no-pdq-in-manifest.jar /usr/src/jasperreports-server/buildomatic/conf_source/db/app-srv-jdbc-drivers/db2jcc4.jar
 ADD drivers/mysql-connector-java-5.1.44-bin.jar /usr/src/jasperreports-server/buildomatic/conf_source/db/app-srv-jdbc-drivers/mysql-connector-java-5.1.44-bin.jar
 
 # Copy web.xml with cross-domain enable
