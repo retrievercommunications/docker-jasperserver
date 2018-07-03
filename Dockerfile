@@ -1,7 +1,7 @@
-FROM tomcat:7
+FROM tomcat:8.5.31-jre8
 MAINTAINER Nic Grange nicolas.grange@retrievercommunications.com 
 
-ENV JASPERSERVER_VERSION 6.4.0
+ENV JASPERSERVER_VERSION 7.1.0
 
 # Execute all in one layer so that it keeps the image as small as possible
 RUN wget "https://sourceforge.net/projects/jasperserver/files/JasperServer/JasperReports%20Server%20Community%20Edition%20${JASPERSERVER_VERSION}/TIB_js-jrs-cp_${JASPERSERVER_VERSION}_bin.zip/download" \
@@ -14,7 +14,7 @@ RUN wget "https://sourceforge.net/projects/jasperserver/files/JasperServer/Jaspe
 # To speed up local testing
 # Download manually the jasperreport server release to working dir
 # Uncomment ADD & RUN commands below and comment out above RUN command
-# ADD TIB_js-jrs-cp_6.4.0_bin.zip /tmp/jasperserver.zip
+# ADD TIB_js-jrs-cp_${JASPERSERVER_VERSION}_bin.zip /tmp/jasperserver.zip
 # RUN unzip /tmp/jasperserver.zip -d /usr/src/ && \
 #    rm /tmp/jasperserver.zip && \
 #    mv /usr/src/jasperreports-server-cp-$JASPERSERVER_VERSION-bin /usr/src/jasperreports-server && \
@@ -38,7 +38,7 @@ VOLUME ["/jasperserver-import"]
 
 # By default, JasperReports Server only comes with Postgres & MariaDB drivers
 # Copy over other JBDC drivers the deploy-jdbc-jar ant task will put it in right location
-ADD drivers/db2jcc4.jar /usr/src/jasperreports-server/buildomatic/conf_source/db/app-srv-jdbc-drivers/db2jcc4.jar
+ADD drivers/db2jcc4-no-pdq-in-manifest.jar /usr/src/jasperreports-server/buildomatic/conf_source/db/app-srv-jdbc-drivers/db2jcc4.jar
 ADD drivers/mysql-connector-java-5.1.44-bin.jar /usr/src/jasperreports-server/buildomatic/conf_source/db/app-srv-jdbc-drivers/mysql-connector-java-5.1.44-bin.jar
 
 # Copy web.xml with cross-domain enable
