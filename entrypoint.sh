@@ -31,7 +31,7 @@ if [ -f "/.do_deploy_jasperserver" ]; then
     rm /.do_deploy_jasperserver
     
     # Add WebServiceDataSource plugin
-    wget https://d2553lapexsdrl.cloudfront.net/sites/default/files/releases/jaspersoft_webserviceds_v1.5.zip -O /tmp/jasper.zip && \
+    wget https://community.jaspersoft.com/sites/default/files/releases/jaspersoft_webserviceds_v1.5.zip -O /tmp/jasper.zip && \
     unzip /tmp/jasper.zip -d /tmp/ && \
     cp -rfv /tmp/JRS/WEB-INF/* /usr/local/tomcat/webapps/ROOT/WEB-INF/ && \
     sed -i 's/queryLanguagesPro/queryLanguagesCe/g' /usr/local/tomcat/webapps/ROOT/WEB-INF/applicationContext-WebServiceDataSource.xml && \
