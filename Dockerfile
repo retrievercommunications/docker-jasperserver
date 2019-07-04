@@ -1,7 +1,7 @@
-FROM tomcat:8.5.31-jre8
+FROM tomcat:9.0-jre8
 MAINTAINER Nic Grange nicolas.grange@retrievercommunications.com 
 
-ENV JASPERSERVER_VERSION 7.1.0
+ENV JASPERSERVER_VERSION 7.2.0
 
 # Execute all in one layer so that it keeps the image as small as possible
 RUN wget "https://sourceforge.net/projects/jasperserver/files/JasperServer/JasperReports%20Server%20Community%20Edition%20${JASPERSERVER_VERSION}/TIB_js-jrs-cp_${JASPERSERVER_VERSION}_bin.zip/download" \
