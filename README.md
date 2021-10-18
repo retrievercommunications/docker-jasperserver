@@ -25,7 +25,7 @@ To start up the JasperServer and a MySQL container:
 
 To stop the containers run `docker-compose stop` and `docker-compose start` to restart them.
 
-Note: To install Docker-compose see the [releases page](https://github.com/docker/compose/releases). 
+Note: To install Docker-compose see the [releases page](https://github.com/docker/compose/releases).
 
 
 ## Login to JasperReports Web
@@ -36,7 +36,7 @@ Note: To install Docker-compose see the [releases page](https://github.com/docke
 
 ## Image Features
 This image includes:
-* JasperServer CE Edition version 7.2.0
+* JasperServer CE Edition version 7.5.0
 * IBM DB2 JDBC driver version 4.19.26, Note: this jar had to be modified as per [exception-in-db2-jcc-driver-under-tomcat8](https://developer.ibm.com/answers/questions/308105/exception-in-db2-jcc-driver-under-tomcat8.html).
 * MySQL JDBC driver version 5.1.44
 * A volume called '/import' that allows automatic importing of export zip files from another JasperReports Server
@@ -44,7 +44,7 @@ This image includes:
 * [Web Service Data Source plugin](https://community.jaspersoft.com/project/web-service-data-source) contributed by [@chiavegatto](https://github.com/chiavegatto)
 
 ## How to build this image
-Use `docker build -t retriever/jasperserver .` 
+Use `docker build -t retriever/jasperserver .`
 
 See comments in Dockerfile to speed up testing by not having to download the jasperserver release each time.
 
@@ -55,5 +55,5 @@ If you are having problems starting the containers because of a MySQL error like
 This repo is setup to trigger an automated build of the image [retriever/jaserpserver](https://hub.docker.com/r/retriever/jasperserver/) on Docker Hub.
 
 To make a new official version of the image, just push a git Tag using the naming convention `major.minor.iteration` where:
-* major and minor line up with the included version of jasperserver 
+* major and minor line up with the included version of jasperserver
 * iteration is incremented each time a change is done that isn't an upgrade of the included jasperserver version
