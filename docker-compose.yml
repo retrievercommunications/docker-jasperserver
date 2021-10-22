@@ -22,7 +22,7 @@ services:
         window: 120s
 
   jasperserver:
-    image: retriever/jasperserver:7.2.0
+    image: retriever/jasperserver:7.5.0
     container_name: jasperserver
     ports:
       - "8080:8080"
