@@ -4,6 +4,8 @@ set -e
 # wait upto 30 seconds for the database to start before connecting
 /wait-for-it.sh $DB_HOST:$DB_PORT -t 30
 
+# required to skip interactive prompt when creating keystore in 7.5.0+
+# see https://community.jaspersoft.com/questions/1155841/docker-install-75-failing-create-ks-interactive-prompt.
 export BUILDOMATIC_MODE=script
 
 # check if we need to bootstrap the JasperServer
